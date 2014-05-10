@@ -1,0 +1,7 @@
+names<-names(read.table("C:/Users/Rodrigo/Documents/Coursera/Exploratory Data Analysis/Project/household_power_consumption.txt", nrows=2880, sep=";", header=TRUE))
+data<-read.table("C:/Users/Rodrigo/Documents/Coursera/Exploratory Data Analysis/Project/household_power_consumption.txt", skip= 66637,nrows=2880, sep=";", col.names=names)
+png(filename="C:/Users/Rodrigo/Documents/Coursera/Exploratory Data Analysis/Project/plot2.png", width = 480, height = 480)
+dates<-paste(data$Date,data$Time)
+datetime<- strptime(dates, "%d/%m/%Y %H:%M:%S")
+plot(datetime,data$Global_active_power, main="Global Active Power", ylab="Global Active Power (kilowatts)",type="l")
+dev.off()
